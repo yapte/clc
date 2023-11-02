@@ -1,0 +1,12 @@
+<form [formGroup]="form" class="col" (ngSubmit)="submit()">
+    <div class="form-item col">
+        <label> Username </label>
+        <input pInputText formControlName="username" type="text">
+    </div>
+    <div class="form-item col">
+        <label>Password</label>
+        <p-password formControlName="password" [feedback]="false" [toggleMask]="true"></p-password>
+    </div>
+
+    <button pButton label="Enter" [disabled]="form.invalid"></button>
+</form>
