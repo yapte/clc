@@ -33,6 +33,9 @@
       "@pages": [
         "src/app/pages/index.ts"
       ],
+      "@shared/api": [
+        "src/app/shared/api/index.ts"
+      ],
     }
   },
   "angularCompilerOptions": {

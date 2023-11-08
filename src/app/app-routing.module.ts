@@ -11,6 +11,7 @@ const routes: Routes = [
     canActivate: [/** TODO: Guard */],
     children: [
       { path: '', loadChildren: () => import('./pages/login-page/login-page.module').then(m => m.LoginPageModule) },
+      // { path: 'restore', loadChildren: () => import('./pages/login-page/login-page.module').then(m => m.LoginPageModule) },
     ],
   },
 
