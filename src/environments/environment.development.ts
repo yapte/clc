@@ -1,4 +1,5 @@
 export const environment = {
-    baseUrl: 'https://host.ru',
+    baseUrl: 'https://localhost:44302',
+    // baseUrl: 'https://jsonplaceholder.typicode.com',
     // baseUrl: '/api', // for proxy
 };

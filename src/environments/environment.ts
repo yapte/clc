@@ -1,3 +1,4 @@
 export const environment = {
-    baseUrl: 'https://host.ru',
+    // baseUrl: 'https://jsonplaceholder.typicode.com',
+    baseUrl: 'https://localhost:44302',
 };

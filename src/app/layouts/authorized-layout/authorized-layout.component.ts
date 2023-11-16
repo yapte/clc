@@ -1,5 +1,7 @@
 import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { SignalsApi } from '@shared/api';
+import { SignalsRpcApi } from 'src/app/shared/api/services/signals.rpc.api';
 
 @Component({
   selector: 'app-authorized-layout',
@@ -10,4 +12,11 @@ import { CommonModule } from '@angular/common';
 })
 export class AuthorizedLayoutComponent {
 
+  signals$ = this.signalsApi.getList();
+  signalsRpc$ = this.signalsRpcApi.getList();
+
+  constructor(
+    private signalsApi: SignalsApi,
+    private signalsRpcApi: SignalsRpcApi,
+  ) { }
 }
