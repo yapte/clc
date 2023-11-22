@@ -2,21 +2,22 @@ import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { SignalsApi } from '@shared/api';
 import { SignalsRpcApi } from 'src/app/shared/api/services/signals.rpc.api';
+import { RouterModule } from '@angular/router';
 
 @Component({
   selector: 'app-authorized-layout',
   standalone: true,
-  imports: [CommonModule],
+  imports: [CommonModule, RouterModule],
   templateUrl: './authorized-layout.component.html',
   styleUrls: ['./authorized-layout.component.scss']
 })
 export class AuthorizedLayoutComponent {
 
-  signals$ = this.signalsApi.getList();
-  signalsRpc$ = this.signalsRpcApi.getList();
+  // signals$ = this.signalsApi.getList();
+  // signalsRpc$ = this.signalsRpcApi.getList();
 
-  constructor(
-    private signalsApi: SignalsApi,
-    private signalsRpcApi: SignalsRpcApi,
-  ) { }
+  // constructor(
+  //   private signalsApi: SignalsApi,
+  //   private signalsRpcApi: SignalsRpcApi,
+  // ) { }
 }

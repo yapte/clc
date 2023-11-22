@@ -1,0 +1,10 @@
+<h2>signals-page works! </h2>
+
+<button type="button" (click)="showCreateModal()"> Create </button>
+
+<span class="p-input-icon-left">
+    <i class="pi pi-search"></i>
+    <input type="text" pInputText (input)="search($event)" />
+</span>
+
+<pre> {{list$ |async |json}} </pre>

@@ -1,5 +1,4 @@
-export interface SignalDto {
-    signal_id: string;
+export interface SignalCreateDto {
     signal_name: string;
     signal_description?: string;
 }

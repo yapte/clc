@@ -1,4 +1,5 @@
 export interface Signal {
     id: string;
-    // TODO:
+    name: string;
+    description?: string;
 }

@@ -18,6 +18,9 @@ const routes: Routes = [
   {
     path: '',
     component: AuthorizedLayoutComponent,
+    children: [
+      { path: 'signals', loadChildren: () => import('./pages/signals-page/signals-page.module').then(m => m.SignalsPageModule) },
+    ],
     canActivate: [/** TODO: Guard */],
   },
 ];
