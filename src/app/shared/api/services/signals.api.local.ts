@@ -6,6 +6,7 @@ import { v4 } from 'uuid';
 import { SignalDto } from "../models/signals/signal.dto";
 import { environment } from "src/environments/environment";
 import { SignalCreateDto } from "../models/signals/signal-create.dto";
+import { ListRequestDto } from "../models/common/list-request.dto";
 
 const BASE_URL = `${environment.baseUrl}/Signals`
 
@@ -15,8 +16,11 @@ export class SignalsApiLocal {
 
     constructor(private http: HttpClient) { }
 
-    getList(): Observable<SignalDto[]> {
-        return of(this._db).pipe(delay(1000));
+    getList(model: ListRequestDto): Observable<SignalDto[]> {
+        const list: SignalDto[] = model.search
+            ? this._db.filter(i => i.signal_name.toLowerCase().includes(model.search!.toLowerCase()))
+            : this._db;
+        return of(list).pipe(delay(1000));
     }
 
     getItem(signalId: string): Observable<SignalDto> {
@@ -29,6 +33,7 @@ export class SignalsApiLocal {
     create(dto: SignalCreateDto): Observable<SignalDto> {
         const item: SignalDto = { signal_id: v4(), ...dto };
         this._db.push(item);
+
         return of(item).pipe(delay(1000));
     }
 

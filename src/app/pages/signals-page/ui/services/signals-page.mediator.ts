@@ -3,12 +3,13 @@ import { SignalsPageCore } from "../../core/signals-page.core";
 import { BehaviorSubject, Observable, filter, finalize, tap } from "rxjs";
 import { Signal } from "@common";
 import { SignalCreate } from "../../core/models/signal-create";
+import { SignalListRequest } from "../../core/models/signal-list-request";
 
 @Injectable()
 export class SignalsPageMediator {
 
     private readonly _list$ = new BehaviorSubject<Signal[] | undefined>(undefined);
-    private readonly requestParams = { search: '', page: 1 };
+    private readonly requestParams: SignalListRequest = { search: '', page: 1 };
 
     readonly list$: Observable<Signal[]> = this._list$.pipe(
         filter(Boolean),
@@ -35,11 +36,14 @@ export class SignalsPageMediator {
         this._fetch();
     }
 
-    create(model: SignalCreate): void {
+    create(model: SignalCreate, onSuccess: () => void): void {
         this.core.createSignal(model)
             .pipe(
                 tap({
-                    next: () => this._fetch(),
+                    next: () => {
+                        this._fetch();
+                        onSuccess();
+                    },
                     error: err => console.log(err), // toast.showError(err)
                 }),
             )

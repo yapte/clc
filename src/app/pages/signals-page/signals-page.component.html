@@ -1,10 +1,31 @@
 <h2>signals-page works! </h2>
 
-<button type="button" (click)="showCreateModal()"> Create </button>
+<button pButton type="button" class="create-btn" (click)="showCreateModal()"> Create </button>
 
 <span class="p-input-icon-left">
     <i class="pi pi-search"></i>
     <input type="text" pInputText (input)="search($event)" />
 </span>
 
-<pre> {{list$ |async |json}} </pre>
+
+<p-table *ngIf="list$ |async as signals" [value]="signals" [tableStyle]="{ 'min-width': '50rem' }">
+    <ng-template pTemplate="header">
+        <tr>
+            <th>ID</th>
+            <th>Name</th>
+            <th>Description</th>
+            <th></th>
+        </tr>
+    </ng-template>
+    <ng-template pTemplate="body" let-signal>
+        <tr>
+            <td>{{ signal.id }}</td>
+            <td>{{ signal.name }}</td>
+            <td>{{ signal.description }}</td>
+            <td> 
+                <button pButton icon="pi pi-trash" class="p-button-icon-only" (click)="removeSignal(signal.id)"></button>    
+            </td>
+        </tr>
+    </ng-template>
+</p-table>
+<!-- <pre> {{list$ |async |json}} </pre> -->

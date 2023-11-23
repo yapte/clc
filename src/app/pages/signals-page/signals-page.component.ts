@@ -36,6 +36,10 @@ export class SignalsPageComponent implements OnInit {
   }
 
   showCreateModal(): void {
-    this.dialog.open(SignalCreateModalComponent, {});
+    this.dialog.open(SignalCreateModalComponent, { width: '50%' });
+  }
+
+  removeSignal(signalId: string): void {
+    this.mediator.remove(signalId);
   }
 }

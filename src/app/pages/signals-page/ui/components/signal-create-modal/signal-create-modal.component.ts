@@ -21,6 +21,6 @@ export class SignalCreateModalComponent {
   ) { }
 
   submit(): void {
-    this.mediator.create(this.form.value as SignalCreate);
+    this.mediator.create(this.form.value as SignalCreate, () => this.dialogRef.close());
   }
 }

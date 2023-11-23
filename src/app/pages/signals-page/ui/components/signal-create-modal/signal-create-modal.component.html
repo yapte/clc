@@ -1,10 +1,14 @@
 <p>signal-create-modal works!</p>
 
-<form [formGroup]="form" (ngSubmit)="submit()">
-    <input type="text" formControlName="name">
-    <input type="text" formControlName="description">
+<form [formGroup]="form" class="col" (ngSubmit)="submit()">
+    <div class="form-item col">
+        <label> Name </label>
+        <input pInputText type="text" formControlName="name">
+    </div>
+    <div class="form-item col">
+        <label> Description </label>
+        <textarea pInputTextarea formControlName="description"></textarea>
+    </div>
 
-    <button type="submit"> Create </button>
+    <button pButton type="submit" [disabled]="form.invalid"> Create </button>
 </form>
-
-

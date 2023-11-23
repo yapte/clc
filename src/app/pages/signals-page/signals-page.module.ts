@@ -3,10 +3,12 @@ import { CommonModule } from '@angular/common';
 import { SignalsPageRoutingModule } from './signals-page-routing.module';
 import { SignalsPageComponent } from './signals-page.component';
 import { SignalCreateModalComponent } from './ui/components/signal-create-modal/signal-create-modal.component';
+import { InputTextareaModule } from 'primeng/inputtextarea';
 import { InputTextModule } from 'primeng/inputtext';
-// import { DialogModule } from 'primeng/dialog';
 import { DynamicDialogModule } from 'primeng/dynamicdialog';
 import { ReactiveFormsModule } from '@angular/forms';
+import { ButtonModule } from 'primeng/button';
+import { TableModule } from 'primeng/table';
 
 
 
@@ -20,8 +22,11 @@ import { ReactiveFormsModule } from '@angular/forms';
     SignalsPageRoutingModule,
     ReactiveFormsModule,
 
-    InputTextModule,
+    ButtonModule,
     DynamicDialogModule,
+    InputTextareaModule,
+    InputTextModule,
+    TableModule,
   ]
 })
 export class SignalsPageModule { }
