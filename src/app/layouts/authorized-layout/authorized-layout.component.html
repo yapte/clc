@@ -1,6 +1,37 @@
-<p>authorized-layout works!</p>
+<nav class="col">
+  <a
+    [routerLink]="['/']"
+    pButton
+    icon="pi pi-home"
+    class="p-button-icon-only p-button-text"
+  >
+  </a>
+  <a
+    [routerLink]="['/signals']"
+    pButton
+    icon="pi pi-sitemap"
+    class="p-button-icon-only p-button-text"
+  >
+  </a>
+  <a
+    [routerLink]="['/yaml']"
+    pButton
+    icon="pi pi-file-edit"
+    class="p-button-icon-only p-button-text"
+  >
+  </a>
+  <a
+    [routerLink]="['/fuzzy-node']"
+    pButton
+    label="Fuzzy node"
+    class="p-button-text"
+  >
+  </a>
+</nav>
 
-<router-outlet></router-outlet>
+<main>
+  <router-outlet></router-outlet>
+</main>
 
 <!-- <div class="row">
     <div class="item col">
