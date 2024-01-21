@@ -2,36 +2,85 @@
 
 <div class="list col">
   <div class="chapter">
-    <a
+    <button
       pButton
-      label="Antecedent"
+      label="Antecedents"
       class="chapter-head p-button-text"
-    ></a>
+      (click)="goTo(Tab.Antecedents)"
+    ></button>
 
-    <ul class="children">
-      <li>-</li>
-    </ul>
+    <div
+      *ngIf="antecedents$ | async as antecedents"
+      class="children col"
+    >
+      <button
+        *ngFor="let a of antecedents"
+        pButton
+        icon="pi pi-caret-right"
+        [label]="a.name"
+        class="p-button-text"
+      ></button>
+
+      <p
+        *ngIf="!antecedents.length"
+        class="empty-list"
+      >
+        Empty list
+      </p>
+    </div>
   </div>
+
+  <p-divider></p-divider>
+
   <div class="chapter">
-    <a
+    <button
       pButton
       label="Consequences"
       class="chapter-head p-button-text"
-    ></a>
+      (click)="goTo(Tab.Consequences)"
+    ></button>
 
-    <ul class="children">
-      <li>-</li>
-    </ul>
+    <div
+      *ngIf="consequences$ | async as consequences"
+      class="children"
+    >
+      <p
+        *ngIf="!consequences.length"
+        class="empty-list"
+      >
+        Empty list
+      </p>
+    </div>
   </div>
+
+  <p-divider></p-divider>
+
   <div class="chapter">
-    <a
+    <button
       pButton
       label="Rules"
       class="chapter-head p-button-text"
-    ></a>
+      (click)="goTo(Tab.Rules)"
+    ></button>
 
-    <ul class="children">
-      <li>-</li>
-    </ul>
+    <div
+      *ngIf="rules$ | async as rules"
+      class="children col"
+    >
+      <button
+        *ngFor="let r of rules"
+        pButton
+        icon="pi pi-caret-right"
+        [label]="r.name"
+        class="p-button-text"
+      ></button>
+
+      <p
+        *ngIf="!rules.length"
+        class="empty-list"
+      >
+        Empty list
+      </p>
+    </div>
   </div>
 </div>

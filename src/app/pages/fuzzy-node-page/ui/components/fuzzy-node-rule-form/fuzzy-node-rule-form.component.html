@@ -1,0 +1,55 @@
+<h4>{{ rule.name }}</h4>
+
+<form
+  [formGroup]="form"
+  class="col"
+>
+  <div class="form-item col">
+    <label>Label</label>
+    <input
+      pInputText
+      formControlName="label"
+    />
+  </div>
+
+  <div class="form-item col">
+    <label>Rule</label>
+    <textarea
+      pInputTextarea
+      formControlName="rule"
+    ></textarea>
+  </div>
+
+  <table formArrayName="terms">
+    <thead>
+      <tr>
+        <td>Name</td>
+        <td>Term</td>
+        <td>Factor</td>
+      </tr>
+    </thead>
+    <tbody>
+      <tr [formGroupName]="0">
+        <td>
+          <input
+            pInputText
+            formControlName="name"
+          />
+        </td>
+        <td>
+          <input
+            pInputText
+            formControlName="term"
+          />
+        </td>
+        <td>
+          <input
+            pInputText
+            formControlName="factor"
+            type="number"
+          />
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</form>

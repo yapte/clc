@@ -1,1 +1,29 @@
-<p>fuzzy-node-rules works!</p>
+<h3>Rules</h3>
+
+<form
+  [formGroup]="form"
+  class="create-form row"
+  (ngSubmit)="create()"
+>
+  <input
+    pInputText
+    formControlName="name"
+    autofocus
+  />
+
+  <button
+    pButton
+    label="Add"
+    [disabled]="form.invalid"
+  ></button>
+</form>
+
+<div
+  *ngIf="rules$ | async as rules"
+  class="list col"
+>
+  <app-fuzzy-node-rule-form
+    *ngFor="let item of rules"
+    [rule]="item"
+  ></app-fuzzy-node-rule-form>
+</div>

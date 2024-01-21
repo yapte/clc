@@ -1,0 +1,37 @@
+.title {
+    align-items: center;
+
+    h4 {
+        font-size: 20px;
+        font-weight: 200;
+        text-transform: uppercase;
+    }
+}
+
+table {
+    thead {
+        td {
+            font-weight: 600;
+            padding: 6px 12px;
+        }
+    }
+
+    tbody {
+        td {
+            max-width: 100px;
+
+            &:first-child {
+                padding: 6px 12px;
+            }
+
+            &:nth-child(3) {
+                width: 50px;
+                max-width: unset;
+            }
+
+            input {
+                width: 100%;
+            }
+        }
+    }
+}

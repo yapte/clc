@@ -1,0 +1,73 @@
+<div class="title row">
+  <h4>{{ antecedent.name }}</h4>
+  <button
+    pButton
+    icon="pi pi-trash"
+    class="p-button-icon-only p-button-text p-button-danger"
+    (click)="remove()"
+  ></button>
+</div>
+
+<form [formGroup]="form">
+  <table>
+    <thead>
+      <tr>
+        <td>Term</td>
+        <td>Label</td>
+        <td>Bound type</td>
+        <td>a</td>
+        <td>b</td>
+        <td>c</td>
+        <td>d</td>
+      </tr>
+    </thead>
+    <tbody>
+      <tr
+        *ngFor="let term of availableTerms; let index = index"
+        [formGroupName]="term"
+      >
+        <td>{{ term }}</td>
+        <td>
+          <input
+            pInputText
+            formControlName="label"
+          />
+        </td>
+        <td>
+          <p-dropdown
+            [options]="boundTypeOptions"
+            formControlName="boundType"
+          ></p-dropdown>
+        </td>
+        <td>
+          <input
+            pInputText
+            formControlName="a"
+            type="number"
+          />
+        </td>
+        <td>
+          <input
+            pInputText
+            formControlName="b"
+            type="number"
+          />
+        </td>
+        <td>
+          <input
+            pInputText
+            formControlName="c"
+            type="number"
+          />
+        </td>
+        <td>
+          <input
+            pInputText
+            formControlName="d"
+            type="number"
+          />
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</form>

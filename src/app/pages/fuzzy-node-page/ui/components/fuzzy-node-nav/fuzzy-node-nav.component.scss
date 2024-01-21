@@ -12,3 +12,21 @@
 
   //   border: solid 1px #ccc;
 }
+
+.chapter {
+  // padding-bottom: 24px;
+
+  .children {
+    padding-left: 24px;
+
+    button {
+      text-align: left;
+    }
+
+    .empty-list {
+      color: orange;
+      font-weight: 500;
+      padding-left: 24px;
+    }
+  }
+}

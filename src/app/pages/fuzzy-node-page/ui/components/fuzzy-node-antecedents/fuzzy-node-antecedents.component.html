@@ -1,1 +1,29 @@
-<p>fuzzy-node-antecedents works!</p>
+<h3>Antecedents</h3>
+
+<form
+  [formGroup]="form"
+  class="create-form row"
+  (ngSubmit)="create()"
+>
+  <input
+    pInputText
+    formControlName="name"
+    autofocus
+  />
+
+  <button
+    pButton
+    label="Add"
+    [disabled]="form.invalid"
+  ></button>
+</form>
+
+<div
+  *ngIf="antecedents$ | async as antecedents"
+  class="list col"
+>
+  <app-fuzzy-node-item-form
+    *ngFor="let item of antecedents"
+    [antecedent]="item"
+  ></app-fuzzy-node-item-form>
+</div>

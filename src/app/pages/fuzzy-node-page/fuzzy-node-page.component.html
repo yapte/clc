@@ -1,2 +1,17 @@
 <app-fuzzy-node-nav></app-fuzzy-node-nav>
-<div class="main col"></div>
+
+<div class="main col">
+  <div
+    [ngSwitch]="tab$ | async"
+    class="col"
+  >
+    <app-fuzzy-node-antecedents *ngSwitchCase="Tab.Antecedents"></app-fuzzy-node-antecedents>
+    <app-fuzzy-node-consequences *ngSwitchCase="Tab.Consequences"></app-fuzzy-node-consequences>
+    <app-fuzzy-node-rules *ngSwitchCase="Tab.Rules"></app-fuzzy-node-rules>
+  </div>
+</div>
+
+<div class="right-panel col">
+  <app-fuzzy-node-chart></app-fuzzy-node-chart>
+  <app-fuzzy-node-yaml-editor></app-fuzzy-node-yaml-editor>
+</div>
