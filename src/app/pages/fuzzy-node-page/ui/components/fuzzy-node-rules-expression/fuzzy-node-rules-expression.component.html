@@ -1,0 +1,32 @@
+<ng-container *ngIf="items$ | async as items">
+  <ng-container *ngFor="let item of items; let index = index">
+    <p-chip
+      [removable]="true"
+      (onRemove)="removeAt(index)"
+    >
+      <ng-container *ngIf="!item.isOperator">
+        <p-dropdown
+          *ngIf="termOptions$ | async as termOptions"
+          [options]="termOptions"
+          placeholder="Select anrecedent"
+          (onChange)="selectAntecedent($event, index)"
+        ></p-dropdown>
+      </ng-container>
+
+      <ng-container *ngIf="item.isOperator">
+        <p-dropdown
+          [options]="operatorOptions"
+          placeholder="Select operator"
+          (onChange)="selectOperator($event, index)"
+        ></p-dropdown>
+      </ng-container>
+    </p-chip>
+  </ng-container>
+
+  <button
+    pButton
+    icon="pi pi-plus"
+    class="p-button-icon-only p-button-text add-btn"
+    (click)="addExpressionItem()"
+  ></button>
+</ng-container>

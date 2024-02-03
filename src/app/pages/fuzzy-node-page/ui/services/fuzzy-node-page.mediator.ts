@@ -11,7 +11,7 @@ import { TermFormValue } from '../models/term-form-value';
 
 @Injectable()
 export class FuzzyNodePageMediator {
-  private _openedTab$ = new BehaviorSubject<Tab>(Tab.Rules);
+  private _openedTab$ = new BehaviorSubject<Tab>(Tab.Antecedents);
   private _antecedents$ = new BehaviorSubject<Antecedent[]>([]);
   private _consequences$ = new BehaviorSubject<Consequence[]>([]);
   private _rules$ = new BehaviorSubject<Rule[]>([]);
@@ -39,11 +39,6 @@ export class FuzzyNodePageMediator {
     const list: Antecedent[] = this._antecedents$.value;
     this._antecedents$.next(list.filter(i => i.name !== name));
   }
-
-  //   removeAntecedentAt(index: number): void {
-  //     const list: Antecedent[] = this._antecedents$.value;
-  //     this._antecedents$.next([...list.slice(0, index), ...list.slice(index + 1)]);
-  //   }
 
   saveAntecedentParams(name: string, params: Record<Term, TermFormValue>): void {
     const antecedent: Antecedent | undefined = this._antecedents$.value.find(a => a.name === name);

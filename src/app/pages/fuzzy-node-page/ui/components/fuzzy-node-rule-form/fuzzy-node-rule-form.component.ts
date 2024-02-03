@@ -11,7 +11,7 @@ export class FuzzyNodeRuleFormComponent {
   @Input({ required: true }) rule!: Rule;
 
   form = new FormGroup({
-    label: new FormControl<string>('', [Validators.required]),
+    // label: new FormControl<string>('', [Validators.required]),
     rule: new FormControl<string>('', [Validators.required]),
     terms: new FormArray([this._generateTermForm()]),
   });

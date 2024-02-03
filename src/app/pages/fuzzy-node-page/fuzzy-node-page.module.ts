@@ -1,13 +1,16 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { ReactiveFormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 import { ButtonModule } from 'primeng/button';
 import { ChartModule } from 'primeng/chart';
+import { CheckboxModule } from 'primeng/checkbox';
+import { ChipModule } from 'primeng/chip';
 import { DropdownModule } from 'primeng/dropdown';
 import { DividerModule } from 'primeng/divider';
 import { InputTextareaModule } from 'primeng/inputtextarea';
 import { InputTextModule } from 'primeng/inputtext';
+import { OverlayPanelModule } from 'primeng/overlaypanel';
 
 import { FuzzyNodePageRoutingModule } from './fuzzy-node-page-routing.module';
 import { FuzzyNodePageComponent } from './fuzzy-node-page.component';
@@ -19,6 +22,7 @@ import { FuzzyNodeChartComponent } from './ui/components/fuzzy-node-chart/fuzzy-
 import { FuzzyNodeItemFormComponent } from './ui/components/fuzzy-node-item-form/fuzzy-node-item-form.component';
 import { FuzzyNodeYamlEditorComponent } from './ui/components/fuzzy-node-yaml-editor/fuzzy-node-yaml-editor.component';
 import { FuzzyNodeRuleFormComponent } from './ui/components/fuzzy-node-rule-form/fuzzy-node-rule-form.component';
+import { FuzzyNodeRulesExpressionComponent } from './ui/components/fuzzy-node-rules-expression/fuzzy-node-rules-expression.component';
 
 @NgModule({
   declarations: [
@@ -31,18 +35,23 @@ import { FuzzyNodeRuleFormComponent } from './ui/components/fuzzy-node-rule-form
     FuzzyNodeItemFormComponent,
     FuzzyNodeYamlEditorComponent,
     FuzzyNodeRuleFormComponent,
+    FuzzyNodeRulesExpressionComponent,
   ],
   imports: [
     CommonModule,
+    FormsModule,
     ReactiveFormsModule,
     FuzzyNodePageRoutingModule,
 
     ButtonModule,
     ChartModule,
+    CheckboxModule,
+    ChipModule,
     DividerModule,
+    DropdownModule,
     InputTextareaModule,
     InputTextModule,
-    DropdownModule,
+    OverlayPanelModule,
   ],
 })
 export class FuzzyNodePageModule {}

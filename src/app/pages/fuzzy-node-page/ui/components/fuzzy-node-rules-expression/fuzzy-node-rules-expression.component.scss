@@ -1,0 +1,39 @@
+:host {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 4px;
+    padding: 12px;
+    border: solid 4px darkcyan;
+    border-radius: 8px;
+
+    p-dropdown::ng-deep {
+        .p-dropdown {
+            border: none;
+            background-color: transparent;
+
+            .p-dropdown-label.p-placeholder {
+                color: red;
+            }
+
+            .p-dropdown-trigger {
+                width: auto;
+                color: white;
+                padding: 4px;
+            }
+
+            &:not(.p-disabled).p-focus {
+                box-shadow: none;
+            }
+
+            .p-dropdown-label {
+                padding: 4px;
+                color: green;
+            }
+        }
+    }
+
+    .add-btn {
+        padding: 4px;
+        width: auto;
+    }
+}

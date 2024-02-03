@@ -2,18 +2,49 @@
   <h4>{{ antecedent.name }}</h4>
   <button
     pButton
+    icon="pi pi-sliders-h"
+    class="p-button-icon-only p-button-text p-button-secondary"
+    (click)="op.toggle($event)"
+  ></button>
+  <p-overlayPanel #op>
+    <div class="col">
+      <!-- [name]="term" -->
+      <!-- <p-checkbox
+        *ngFor="let term of availableTerms"
+        [label]="term"
+        [value]="term"
+        [(ngModel)]="selectedTerms"
+      ></p-checkbox> -->
+      <label
+        *ngFor="let term of availableTerms"
+        class="row"
+      >
+        <input
+          type="checkbox"
+          [checked]="selectedTerms.includes(term)"
+          (change)="toggleTerm(term, $event)"
+        />
+        <span>{{ term }}</span>
+      </label>
+    </div>
+  </p-overlayPanel>
+  <button
+    pButton
     icon="pi pi-trash"
     class="p-button-icon-only p-button-text p-button-danger"
     (click)="remove()"
   ></button>
 </div>
 
-<form [formGroup]="form">
+<form
+  [formGroup]="form"
+  (ngSubmit)="submit()"
+>
   <table>
     <thead>
       <tr>
         <td>Term</td>
-        <td>Label</td>
+        <!-- <td>Label</td> -->
         <td>Bound type</td>
         <td>a</td>
         <td>b</td>
@@ -23,16 +54,16 @@
     </thead>
     <tbody>
       <tr
-        *ngFor="let term of availableTerms; let index = index"
+        *ngFor="let term of selectedTerms; let index = index"
         [formGroupName]="term"
       >
         <td>{{ term }}</td>
-        <td>
+        <!-- <td>
           <input
             pInputText
             formControlName="label"
           />
-        </td>
+        </td> -->
         <td>
           <p-dropdown
             [options]="boundTypeOptions"
@@ -70,4 +101,5 @@
       </tr>
     </tbody>
   </table>
+  <!-- <button pButton label="Submit"></button> -->
 </form>
