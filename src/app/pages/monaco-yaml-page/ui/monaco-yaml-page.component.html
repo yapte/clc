@@ -1,0 +1,13 @@
+<h2>monaco-yaml-page works!!!!!!</h2>
+
+<div class="nodes row">
+  <button *ngFor="let nodeType of nodeTypes" class="node" (click)="showEditorForNodeType(nodeType)">
+    {{ nodeType.name }}
+  </button>
+</div>
+
+<ng-container *ngIf="nodeType$ | async as nodeType">
+  <h3>{{ nodeType.name }}</h3>
+</ng-container>
+
+<app-monaco-editor *ngIf="nodeTypeSchema$ | async as schema" [schema]="schema"></app-monaco-editor>

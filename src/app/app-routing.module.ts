@@ -36,6 +36,11 @@ const routes: Routes = [
         path: 'fuzzy-node',
         loadChildren: () => import('./pages/fuzzy-node-page/fuzzy-node-page.module').then(m => m.FuzzyNodePageModule),
       },
+      {
+        path: 'monaco-yaml',
+        loadChildren: () =>
+          import('./pages/monaco-yaml-page/monaco-yaml-page.module').then(m => m.MonacoYamlPageModule),
+      },
     ],
     canActivate: [
       /** TODO: Guard */

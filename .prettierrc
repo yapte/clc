@@ -10,5 +10,5 @@
   "quoteProps": "as-needed",
   "printWidth": 120,
   "bracketSameLine": false,
-  "singleAttributePerLine": true
+  "singleAttributePerLine": false
 }

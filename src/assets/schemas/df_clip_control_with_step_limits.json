@@ -1,0 +1,64 @@
+{
+  "title": "Node parameters",
+  "description": "All parameters that needed to init the node",
+  "type": "object",
+  "properties": {
+    "mv_columns": {
+      "title": "Mv columns",
+      "description": "Column names of manipulated variables",
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "step_limits": {
+      "title": "Step limits",
+      "description": "Values for each setpoint to make bounds more precisely",
+      "type": "object",
+      "additionalProperties": {
+        "anyOf": [
+          {
+            "type": "integer"
+          },
+          {
+            "type": "number"
+          }
+        ]
+      }
+    },
+    "tech_hi": {
+      "title": "Tech hi",
+      "description": "Mapping tech lower bound for each manipulated variable",
+      "type": "object",
+      "additionalProperties": {
+        "type": "string"
+      }
+    },
+    "tech_lo": {
+      "title": "Tech lo",
+      "description": "Mapping tech higher bound for each manipulated variable",
+      "type": "object",
+      "additionalProperties": {
+        "type": "string"
+      }
+    },
+    "inner_lo": {
+      "title": "Inner lo",
+      "description": "Our lower bounds mapping for each manipulated variable.",
+      "type": "object",
+      "additionalProperties": {
+        "type": "string"
+      }
+    },
+    "inner_hi": {
+      "title": "Inner hi",
+      "description": "Our higher bounds mapping for each manipulated variable.",
+      "type": "object",
+      "additionalProperties": {
+        "type": "string"
+      }
+    }
+  },
+  "required": ["mv_columns", "step_limits", "tech_hi", "tech_lo", "inner_lo", "inner_hi"],
+  "additionalProperties": false
+}
